@@ -18,6 +18,7 @@ require (
 	github.com/micro/go-plugins v1.5.1
 	github.com/micro/go-plugins/config/source/consul v0.0.0-20200119172437-4fe21aa238fd
 	github.com/opentracing/opentracing-go v1.1.0
-	github.com/qianbaidu/go-micro-mall v0.0.1
+	github.com/qianbaidu/go-micro-mall v0.0.4
+
 	golang.org/x/crypto v0.0.0-20191205180655-e7c4368fe9dd
 )

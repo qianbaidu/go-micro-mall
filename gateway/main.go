@@ -53,7 +53,7 @@ func init() {
 			Value:  cfgUtil.GetConsulAddress(),
 		}),
 		plugin.WithInit(func(ctx *cli.Context) error {
-			token.InitConfig(ctx.String("consul_address"), "micro", "config", "jwt-key", "key")
+			token.InitConfig( "jwt-key", "key")
 			return nil
 		}),
 	))

@@ -2,10 +2,10 @@
 es_host: jhipster-elasticsearch
 #es_host: 10.1.0.13
 es_port: 9200
-name: user-api
+name: api-gateway
 type: frequency
 #use_ssl: True
-index: user-api-*
+index: api-gateway-*
 # link to a kibana dashboard with correct time settings
 use_kibana4_dashboard: "http://jhipster-console:5601/app/kibana#/dashboard/logs-dashboard"
 num_events: 1
@@ -45,7 +45,7 @@ smtp_port: 25
 smtp_ssl: true
 smtp_auth_file: /opt/elastalert/smtp_auth_file.yaml
 email_reply_to: no-reply@gaojihealth.com
-from_addr: "lhg1397@125.com"
+from_addr: "lhg1397@126.com"
 
 alert:
   - "email"

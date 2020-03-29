@@ -17,5 +17,5 @@ require (
 	github.com/micro/go-plugins v1.5.1
 	github.com/micro/micro v1.18.0
 	github.com/opentracing/opentracing-go v1.1.0
-	github.com/qianbaidu/go-micro-mall v0.0.1
+	github.com/qianbaidu/go-micro-mall v0.0.4
 )

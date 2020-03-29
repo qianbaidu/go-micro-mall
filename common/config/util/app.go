@@ -34,7 +34,7 @@ func InitGetAppCfg(appName string) (cfg *AppCfg) {
 	err := config.C().App(appName, cfg)
 	if err != nil {
 		log.Errorf("load app[%s] config error  %s ", appName, err)
-		panic(err)
+		log.Fatal(err)
 	}
 
 	log.Infof("[initCfg] 配置，cfg：%v", cfg)
@@ -55,7 +55,7 @@ func GetConsulAddress() string {
 	err := config.C().App("consul", consulCfg)
 	if err != nil {
 		log.Error("load consul config error ", err)
-		panic(err)
+		log.Fatal(err)
 	}
 
 	return fmt.Sprintf("%s:%d", consulCfg.Host, consulCfg.Port)
@@ -66,7 +66,7 @@ func GetJaegerAddress() string {
 	err := config.C().App("jaeger", jaegerCfg)
 	if err != nil {
 		log.Error("load jaeger config error ", err)
-		panic(err)
+		log.Fatal(err)
 	}
 
 	return fmt.Sprintf("%s:%d", jaegerCfg.Host, jaegerCfg.Port)
@@ -77,7 +77,7 @@ func GetEsCfg() *ElasticSearch {
 	err := config.C().App("elasticsearch", esCfg)
 	if err != nil {
 		log.Error("load elasticsearch config error ", err)
-		panic(err)
+		log.Fatal(err)
 	}
 
 	return esCfg

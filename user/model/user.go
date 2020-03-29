@@ -21,8 +21,9 @@ type dbInfo struct {
 }
 
 func Init(address string) {
+	var err error
 	mysqlCfg := cfgUtil.GetMysqlCfg()
-	db, err := gorm.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local",
+	db, err = gorm.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local",
 		mysqlCfg.UserName, mysqlCfg.UserPassword, mysqlCfg.Address, mysqlCfg.Port, mysqlCfg.DbName))
 	if err != nil {
 		log.Fatal("failed to connect database：", err)

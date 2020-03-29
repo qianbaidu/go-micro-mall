@@ -1,4 +1,5 @@
 .idea
 .Archive
 *_bak
-micro-log-monitor/volumes/elasticsearch/data/*
+docker/volumes/elasticsearch/data
+

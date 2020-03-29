@@ -499,6 +499,10 @@ github.com/prometheus/procfs v0.0.2/go.mod h1:TjEm7ze935MbeOT/UhFTIMYKhuLP4wbCsT
 github.com/prometheus/procfs v0.0.3/go.mod h1:4A/X28fw3Fc593LaREMrKMqOKvUAntwMDaekg4FpcdQ=
 github.com/qianbaidu/go-micro-mall v0.0.1 h1:ANbWyXlB4YqF/nS74yHSQtu0rM41UoquqYXoaA16DR8=
 github.com/qianbaidu/go-micro-mall v0.0.1/go.mod h1:+KDyLKojStyj16PPGSnApST4bFtkhdLuMZ+8s+QJiQY=
+github.com/qianbaidu/go-micro-mall v0.0.2 h1:1PzannAB8v9zpkiF6rq6tGIXUZbeRTXiWbL5c86mMec=
+github.com/qianbaidu/go-micro-mall v0.0.2/go.mod h1:+KDyLKojStyj16PPGSnApST4bFtkhdLuMZ+8s+QJiQY=
+github.com/qianbaidu/go-micro-mall v0.0.3 h1:YD8YzYOcRDQ0WdEy2j2bydVP/LpBsnncXCH3GyKFuNk=
+github.com/qianbaidu/go-micro-mall v0.0.3/go.mod h1:+KDyLKojStyj16PPGSnApST4bFtkhdLuMZ+8s+QJiQY=
 github.com/qianbaidu/go-micro-mall v0.0.28 h1:vmeOE/6xpgJKWzAeh5y5QFf1P8cFRiIVao0i3wz5n1Q=
 github.com/qianbaidu/go-micro-mall v0.0.28/go.mod h1:349JPe+Jq8GzOxM68dDHezfd07+6gFEQOjOVOi5pJM0=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=

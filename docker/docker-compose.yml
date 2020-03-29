@@ -1,0 +1,31 @@
+version: '2'
+services:
+    consul:
+        image: consul
+        ports:
+            - 8500:8500
+        command: consul agent -server -ui -bootstrap-expect=1 -client=0.0.0.0 -data-dir="/consul/data"
+    jaeger:
+        image: jaegertracing/all-in-one:1.7
+        environment:
+            - COLLECTOR_ZIPKIN_HTTP_PORT=9411
+        ports:
+            - 5775:5775/udp
+            - 6831:6831/udp
+            - 6832:6832/udp
+            - 5778:5778
+            - 16686:16686
+            - 14268:14268
+            - 14250:14250
+            - 9411:9411
+    mysql:
+        image: mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=qwertyuiopQ123!@#
+        ports:
+            - 3306:3307/udp
+
+
+
+
+

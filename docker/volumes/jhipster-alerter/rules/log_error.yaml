@@ -45,7 +45,7 @@ smtp_port: 25
 smtp_ssl: true
 smtp_auth_file: /opt/elastalert/smtp_auth_file.yaml
 email_reply_to: no-reply@gaojihealth.com
-from_addr: "lhg1397@125.com"
+from_addr: "lhg1397@126.com"
 
 alert:
   - "email"

@@ -2,9 +2,9 @@ package util
 
 import (
 	"fmt"
+	"github.com/micro/go-plugins/config/source/grpc"
 	"github.com/qianbaidu/go-micro-mall/common/basic"
 	"github.com/qianbaidu/go-micro-mall/common/config"
-	"github.com/micro/go-plugins/config/source/grpc"
 	"strconv"
 
 	comCfg "github.com/qianbaidu/go-micro-mall/common/config"
@@ -99,4 +99,18 @@ func GetHystrixCfg() *Hystrix {
 	}
 
 	return hystrixCfg
+}
+
+func GetJwtKey() *Jwt {
+	jwtKey := &Jwt{}
+	err := config.C().App("jwt-key", jwtKey)
+	log.Info("jwt-key load config : ", jwtKey)
+	if err != nil {
+		log.Error("load jwt-key config error ", err)
+		return &Jwt{
+			Key: "asdf1saf233asdfas3df",
+		}
+	}
+
+	return jwtKey
 }

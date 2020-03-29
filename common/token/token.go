@@ -3,9 +3,12 @@ package token
 import (
 	jwt "github.com/dgrijalva/jwt-go"
 	config "github.com/micro/go-micro/config"
-	"github.com/micro/go-micro/config/source/consul"
+
+	"github.com/micro/go-plugins/config/source/grpc"
 
 	"github.com/qianbaidu/go-micro-mall/common/util/log"
+
+	comCfg "github.com/qianbaidu/go-micro-mall/common/config"
 	"sync"
 	"time"
 )
@@ -38,14 +41,15 @@ func (srv *Token) put(newKey []byte) {
 }
 
 // InitConfig 初始化
-func (srv *Token) InitConfig(address string, path ...string) {
-	consulSource := consul.NewSource(
-		consul.WithAddress(address),
-		// consul.WithPrefix("/my/prefix"),
-		// consul.StripPrefix(true),
+func (srv *Token) InitConfig(path ...string) {
+	log.Info("address : ",comCfg.Config_srv_address)
+	source := grpc.NewSource(
+		grpc.WithAddress(comCfg.Config_srv_address),
+		//grpc.WithPath("micro"),
 	)
+
 	srv.conf = config.NewConfig()
-	err := srv.conf.Load(consulSource)
+	err := srv.conf.Load(source)
 	if err != nil {
 		log.Fatal(err)
 	}

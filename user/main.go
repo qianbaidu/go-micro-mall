@@ -58,7 +58,7 @@ func main() {
 			Value:  cfgUtil.GetConsulAddress(),
 		}),
 		micro.Action(func(ctx *cli.Context) {
-			token.InitConfig(ctx.String("consul_address"), "micro", "config", "jwt-key", "key")
+			token.InitConfig("micro","jwt-key")
 		}),
 		micro.Address(appCfg.Addr()),
 	)

@@ -12,12 +12,12 @@ replace (
 require (
 	github.com/golang/protobuf v1.3.3
 	github.com/jinzhu/gorm v1.9.12
-	github.com/qianbaidu/go-micro-mall v0.0.1
 
 	github.com/micro/cli v0.2.0
 	github.com/micro/go-micro v1.18.0
 	github.com/micro/go-plugins v1.5.1
 	github.com/micro/go-plugins/config/source/consul v0.0.0-20200119172437-4fe21aa238fd
 	github.com/opentracing/opentracing-go v1.1.0
+	github.com/qianbaidu/go-micro-mall v0.0.1
 	golang.org/x/crypto v0.0.0-20191205180655-e7c4368fe9dd
 )

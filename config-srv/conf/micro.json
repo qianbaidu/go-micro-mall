@@ -68,8 +68,8 @@
               "nodes": "127.0.0.1:16379,127.0.0.1:26379,127.0.0.1:36379"
           }
       },
-      "jwt":{
-        "secretKey": "asdf1saf233asdfas3df"
+      "jwt-key":{
+        "key": "asdf1saf233asdfas3df"
       }
   }
 }

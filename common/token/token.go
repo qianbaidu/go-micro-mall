@@ -42,7 +42,7 @@ func (srv *Token) put(newKey []byte) {
 
 // InitConfig 初始化
 func (srv *Token) InitConfig(path ...string) {
-	log.Info("address : ",comCfg.Config_srv_address)
+	log.Info("address : ", comCfg.Config_srv_address)
 	source := grpc.NewSource(
 		grpc.WithAddress(comCfg.Config_srv_address),
 		//grpc.WithPath("micro"),
@@ -60,7 +60,7 @@ func (srv *Token) InitConfig(path ...string) {
 	}
 
 	srv.put(value)
-	log.Info("JWT privateKey:", string(srv.get()))
+	log.Info("init load JWT privateKey:", string(srv.get()))
 	srv.enableAutoUpdate(path...)
 }
 
@@ -69,11 +69,11 @@ func (srv *Token) enableAutoUpdate(path ...string) {
 		for {
 			w, err := srv.conf.Watch(path...)
 			if err != nil {
-				log.Error(err)
+				log.Errorf("watch jwt ken err %s", err)
 			}
 			v, err := w.Next()
 			if err != nil {
-				log.Error(err)
+				log.Errorf("watch jwt ket next error %s ", err)
 			}
 
 			value := v.Bytes()

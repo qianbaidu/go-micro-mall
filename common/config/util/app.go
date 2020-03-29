@@ -114,3 +114,14 @@ func GetJwtKey() *Jwt {
 
 	return jwtKey
 }
+
+func GetMysqlCfg() *Mysql {
+	mysqlCfg := &Mysql{}
+	err := config.C().App("mysql", mysqlCfg)
+	log.Info("mysql load config : ", mysqlCfg)
+	if err != nil {
+		log.Fatal("load mysql config error ", err)
+	}
+
+	return mysqlCfg
+}

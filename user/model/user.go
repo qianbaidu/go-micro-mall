@@ -6,8 +6,8 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/qianbaidu/go-micro-mall/common/util/log"
 	pb "github.com/qianbaidu/go-micro-mall/user/proto/user"
-	config "github.com/micro/go-micro/config"
-	"github.com/micro/go-plugins/config/source/consul"
+
+	cfgUtil "github.com/qianbaidu/go-micro-mall/common/config/util"
 )
 
 var db *gorm.DB
@@ -21,23 +21,9 @@ type dbInfo struct {
 }
 
 func Init(address string) {
-	consulSource := consul.NewSource(consul.WithAddress(address))
-	conf := config.NewConfig()
-
-	// Load file source
-	err := conf.Load(consulSource)
-	if err != nil {
-		log.Fatal(err)
-	}
-	var v dbInfo
-	err = conf.Get("micro", "config", "database", "user").Scan(&v)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	log.Info(v)
-	db, err = gorm.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local",
-		v.UserName, v.UserPassword, v.Address, v.Port, v.DbName))
+	mysqlCfg := cfgUtil.GetMysqlCfg()
+	db, err := gorm.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local",
+		mysqlCfg.UserName, mysqlCfg.UserPassword, mysqlCfg.Address, mysqlCfg.Port, mysqlCfg.DbName))
 	if err != nil {
 		log.Fatal("failed to connect database：", err)
 	}

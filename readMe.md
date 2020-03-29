@@ -53,7 +53,7 @@ make run
 cd api
 make run
 ```
-- 启动gateway
+- 5.启动gateway
 ```
 cd gateway
 make run

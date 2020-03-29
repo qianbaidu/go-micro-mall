@@ -1,0 +1,54 @@
+# Simple alert that is triggered by ERROR logs
+es_host: jhipster-elasticsearch
+#es_host: 10.1.0.13
+es_port: 9200
+name: log_error
+type: frequency
+#use_ssl: True
+index: hello-srv-*
+# link to a kibana dashboard with correct time settings
+use_kibana4_dashboard: "http://jhipster-console:5601/app/kibana#/dashboard/logs-dashboard"
+num_events: 1
+timeframe:
+    minutes: 1
+
+#query:
+#  bool:
+#    must:
+#    - match:
+#  match:
+#filter:
+#  - query:
+#    match:
+#      level: "ERROR"
+#    query_string:
+#      fields:
+#        - level
+#      default_field: level
+#      query: "INFO"
+
+filter:
+- query:
+    query_string:
+      query: "level:ERROR"
+
+#alert:
+#  - "email"
+#- "debug"
+#- "gitter"
+# send a webhook to given URL (for example use a testing website like http://webhook.site/)
+#gitter_webhook_url: "http://webhook.site/b3b9323c-205f-4f2a-af32-0c166cb10c24"
+
+alert_text: "micro moitoring"
+smtp_host: smtp.126.com
+smtp_port: 25
+smtp_ssl: true
+smtp_auth_file: /opt/elastalert/smtp_auth_file.yaml
+email_reply_to: no-reply@gaojihealth.com
+from_addr: "lhg1397@125.com"
+
+alert:
+  - "email"
+
+email:
+  - "lhg1397@126.com"

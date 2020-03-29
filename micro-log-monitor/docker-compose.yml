@@ -1,0 +1,45 @@
+version: '2'
+services:
+    jhipster-elasticsearch:
+        image: jhipster/jhipster-elasticsearch:v2.2.1
+        ports:
+            - 9200:9200
+            - 9300:9300
+
+        volumes:
+            - ./volumes/elasticsearch/data:/usr/share/elasticsearch/data
+            - ./volumes/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+
+    jhipster-console:
+        image: jhipster/jhipster-console:v2.2.1
+        ports:
+            - 5601:5601
+        #environment:
+        #    - ELASTICSEARCH_URL=http://jhipster-elasticsearch:9200
+
+    jhipster-import-dashboards:
+        image: jhipster/jhipster-import-dashboards:v2.2.1
+        environment:
+            - ELASTICSEARCH_URL=http://jhipster-elasticsearch:9200
+        depends_on:
+            - jhipster-elasticsearch
+
+    jhipster-curator:
+        image: jhipster/jhipster-curator:v2.2.1
+        environment:
+            - ES_HOST=jhipster-elasticsearch
+            - UNIT_COUNT=7
+            - UNIT=days
+
+    jhipster-alerter:
+        image: jhipster/jhipster-alerter:v2.2.1
+        volumes:
+            - ./volumes/jhipster-alerter/rules/:/opt/elastalert/rules/
+            - ./volumes/jhipster-alerter/config.yaml:/opt/elastalert/config.yaml
+            - ./volumes/jhipster-alerter/smtp_auth_file.yaml:/opt/elastalert/smtp_auth_file.yaml
+
+
+# Uncomment to use the log-data volume
+# volumes:
+#     log-data:
+#         driver: local

@@ -1,0 +1,4 @@
+.idea
+.Archive
+*_bak
+micro-log-monitor/volumes/elasticsearch/data/*

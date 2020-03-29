@@ -1,0 +1,21 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {},
+        "license": {}
+    },
+    "paths": {
+        "/user/login/": {
+            "post": {
+                "description": "user login",
+                "summary": "user login"
+            }
+        },
+        "/user/register/": {
+            "post": {
+                "description": "user register",
+                "summary": "user register"
+            }
+        }
+    }
+}

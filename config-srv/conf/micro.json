@@ -1,0 +1,78 @@
+{
+  "micro":{
+      "user-srv":{
+        "name": "go.micro.srv.user",
+        "address": "127.0.0.1",
+        "port": 9090
+      },
+      "user-api":{
+        "name":"go.micro.api.user",
+        "address": "127.0.0.1",
+        "port": 9091
+      },
+      "hello-srv":{
+        "name":"go.micro.srv.hello",
+        "address": "localhost",
+        "port": 9092
+      },
+      "api-gateway":{
+        "name":"go.micro.api-gateway",
+        "address": "localhost",
+        "port": 8082
+      },
+      "etcd":{
+          "enabled": true,
+          "host":"localhost",
+          "port": 2379
+      },
+      "consul":{
+        "enabled": true,
+        "host":"localhost",
+        "port": 8500
+      },
+      "elasticsearch": {
+        "enabled": true,
+        "protocol": "http",
+        "host":"localhost",
+        "port": 9200
+      },
+      "hystrix" : {
+        "defaultTimeout": 15000,
+        "defaultMaxConcurrent": 10,
+        "defaultVolumeThreshold": 20,
+        "defaultSleepWindow": 5000,
+        "defaultErrorPercentThreshold": 50
+      },
+      "jaeger" : {
+        "enabled": true,
+        "host": "localhost",
+        "port": 6831
+      },
+      "db":{
+          "mysql":{
+              "enabled": true,
+              "url": "root:@(127.0.0.1:3306)/micro_book_mall?charset=utf8&parseTime=true",
+              "maxIdleConnection": 100,
+              "maxOpenConnection": 130
+          }
+      },
+      "redis":{
+          "enabled": true,
+          "conn": "127.0.0.1:6379",
+          "dbNum": 8,
+          "password":"",
+          "timeout": 3000,
+          "sentinel":{
+              "enabled": false,
+              "master": "api",
+              "nodes": "127.0.0.1:16379,127.0.0.1:26379,127.0.0.1:36379"
+          }
+      },
+      "jwt":{
+        "secretKey": "asdf1saf233asdfas3df"
+      }
+  }
+}
+
+
+
